@@ -174,7 +174,7 @@ history = model.fit(
 
 print("\nStarting Fine Tuning...\n")
 
-# Unfreeze the base model
+
 base_model.trainable = True
 
 # Freeze all layers except last 20
@@ -188,7 +188,7 @@ model.compile(
     metrics=["accuracy"]
 )
 
-# 👇 YAHAN ADD KARO
+
 fine_tune_stop = EarlyStopping(
     monitor="val_loss",
     patience=3,
@@ -203,7 +203,7 @@ history_finetune = model.fit(
     epochs=25,
     class_weight=class_weights,
     callbacks=[
-        fine_tune_stop,   # 👈 yahan early_stop ki jagah ye
+        fine_tune_stop,   
         checkpoint,
         reduce_lr
     ]
