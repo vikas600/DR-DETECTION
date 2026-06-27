@@ -36,8 +36,19 @@ app = Flask(__name__)
 # -----------------------------
 # Load Trained Model
 # -----------------------------
-MODEL_PATH = "../models/dr_multiclass_model.h5"
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "..",
+    "models",
+    "dr_multiclass_model.h5"
+)
+
 model = load_model(MODEL_PATH)
+
 
 CLASS_NAMES = [
     "Mild Diabetic Retinopathy",
