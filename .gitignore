@@ -1,0 +1,25 @@
+# Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Dataset
+dataset/
+
+# Uploaded Images
+Deployed Model/uploads/*
+!Deployed Model/uploads/.gitkeep
+
+# Generated Reports
+Medical_Report.pdf
+
+# Results (optional)
+results/
+
+# VS Code
+.vscode/
+
+# Environment Variables
+.env
