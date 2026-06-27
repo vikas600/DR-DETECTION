@@ -150,7 +150,11 @@ def download_report():
     title_style = styles["Title"]
     title_style.alignment = TA_CENTER
 
-    pdf = SimpleDocTemplate("Medical_Report.pdf")
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    pdf_path = os.path.join(BASE_DIR, "Medical_Report.pdf")
+
+    pdf = SimpleDocTemplate(pdf_path)
 
     story = []
 
@@ -424,8 +428,8 @@ def download_report():
     pdf.build(story)
 
     return send_file(
-        "Medical_Report.pdf",
-        as_attachment=True
+    pdf_path,
+    as_attachment=True
     )
 # -----------------------------
 # Main
