@@ -22,6 +22,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.units import inch
 
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 # Import AI Assistant
 from ai_assistant import AI_ASSISTANT
@@ -214,7 +215,9 @@ def download_report():
 
     story.append(Spacer(1,0.3*inch))
 
-    current_time = datetime.now().strftime("%d-%m-%Y %I:%M %p")
+    current_time = datetime.now(
+    ZoneInfo("Asia/Kolkata")
+    ).strftime("%d-%m-%Y %I:%M:%S %p IST")
 
     story.append(
         Paragraph(
